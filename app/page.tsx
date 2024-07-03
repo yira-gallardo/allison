@@ -3,6 +3,8 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import Animation from "./components/UI/Animation/Animation";
 
 interface Photo {
   src: string;
@@ -186,105 +188,181 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-white via-white/5 to-transparent"></div>
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-          <div className="flex justify-center space-x-16 mt-4 text-lg font-bold">
-            <button onClick={() => scrollTo("tour")}>TOUR</button>
-            <a href="#musica" className="">
-              MUSICA
-            </a>
-            <a href="#merch" className="">
-              MERCH
-            </a>
-            <Link
-              href="https://www.youtube.com/channel/UCFCFBfGHOv8wItbjwQPktyA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className=""
-            >
-              VIDEOS
-            </Link>
-            <a href="#galeria" className="">
-              GALERIA
-            </a>
-          </div>
+          <Animation
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="flex justify-center space-x-16 mt-4 text-3xl font-bold">
+              <button
+                onClick={() => scrollTo("tour")}
+                className="border-2 border-transparent py-1 px-4 hover:border-black"
+              >
+                TOUR
+              </button>
+              <button
+                onClick={() => scrollTo("musica")}
+                className="border-2 border-transparent py-1 px-4 hover:border-black"
+              >
+                MUSICA
+              </button>
+              <button
+                onClick={() => scrollTo("merch")}
+                className="border-2 border-transparent py-1 px-4 hover:border-black"
+              >
+                MERCH
+              </button>
+              <Link
+                href="https://www.youtube.com/channel/UCFCFBfGHOv8wItbjwQPktyA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-transparent py-1 px-4 hover:border-black"
+              >
+                VIDEOS
+              </Link>
+              <button
+                onClick={() => scrollTo("galeria")}
+                className="border-2 border-transparent py-1 px-4 hover:border-black"
+              >
+                GALERIA
+              </button>
+            </div>
+          </Animation>
         </div>
       </header>
       <section id="tour" className="py-16">
-        <h2 className="text-4xl font-bold text-center mb-8">TOUR</h2>
-        <div className="max-w-4xl mx-auto">
-          {tourDates.map((tour, index) => (
-            <div
-              key={index}
-              className="grid grid-cols-3 items-center py-4 border-b border-gray-300"
-            >
-              <div className="text-center">
-                <p className="font-semibold">{tour.date}</p>
-                <p>{tour.venue}</p>
+        <Animation
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-6xl font-bold text-center mb-8">TOUR</h2>
+        </Animation>
+        <Animation
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="max-w-4xl mx-auto">
+            {tourDates.map((tour, index) => (
+              <div
+                key={index}
+                className="grid grid-cols-3 items-center py-4 border-b border-gray-300"
+              >
+                <div className="text-center">
+                  <p className="font-semibold">{tour.date}</p>
+                  <p>{tour.venue}</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-semibold">{tour.city}</p>
+                </div>
+                <div className="text-center">
+                  <button className="bg-black text-white py-2 px-4">
+                    TICKETS
+                  </button>
+                </div>
               </div>
-              <div className="text-center">
-                <p className="font-semibold">{tour.city}</p>
-              </div>
-              <div className="text-center">
-                <button className="bg-black text-white py-2 px-4">
-                  TICKETS
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Animation>
       </section>
       <section id="musica" className="py-12">
-        <h2 className="text-4xl font-bold text-center mb-8">MÚSICA</h2>
-        <div className="flex justify-center">
-          <iframe
-            style={{
-              borderRadius: "8px",
-            }}
-            src="https://open.spotify.com/embed/artist/4AP5EFbVVcBv8cfyqO0oqr?utm_source=generator&theme=0"
-            width="60%"
-            height="382"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
-        </div>
+        <Animation
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-6xl font-bold text-center mb-8">MÚSICA</h2>
+        </Animation>
+        <Animation
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex justify-center">
+            <iframe
+              style={{
+                borderRadius: "8px",
+              }}
+              src="https://open.spotify.com/embed/artist/4AP5EFbVVcBv8cfyqO0oqr?utm_source=generator&theme=0"
+              width="60%"
+              height="382"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </Animation>
       </section>
+      <section id="merch" className="bg-white py-[128px]">
+        <Animation
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-6xl font-bold text-center mb-8">MERCH</h2>
+        </Animation>
 
-      <section id="merch" className="bg-white py-12">
-        <h2 className="text-4xl font-bold text-center mb-8">MERCH</h2>
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {merchItems.map((item, index) => (
             <div key={index} className="text-center">
               <a href={item.link} target="_blank" rel="noopener noreferrer">
-                <img
-                  src={item.image}
-                  alt={`Merch item ${index + 1}`}
-                  className="w-full h-auto mb-4 cursor-pointer"
-                />
+                {" "}
+                <Animation
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
+                  <img
+                    src={item.image}
+                    alt={`Merch item ${index + 1}`}
+                    className="w-full h-auto mb-4 cursor-pointer"
+                  />
+                </Animation>
               </a>
             </div>
           ))}
         </div>
       </section>
-
-      <section id="galeria" className="bg-black py-12 text-white">
-        <h2 className="text-4xl font-bold text-center mb-8">GALERÍA</h2>
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
-          {photos.map((photo, index) => (
-            <div
-              key={index}
-              className={`cursor-pointer transition-transform duration-300 ${
-                enlargedPhoto?.src === photo.src ? "transform scale-150" : ""
-              }`}
-              onClick={() => togglePhotoSize(photo)}
-            >
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
+      <section id="galeria" className="bg-black py-[128px] text-white">
+        <Animation
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-6xl font-bold text-center mb-8">GALERÍA</h2>
+        </Animation>
+        <Animation
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+            {photos.map((photo, index) => (
+              <div
+                key={index}
+                className={`cursor-pointer transition-transform duration-300 ${
+                  enlargedPhoto?.src === photo.src ? "transform scale-150" : ""
+                }`}
+                onClick={() => togglePhotoSize(photo)}
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </Animation>
       </section>
       <footer className="bg-black text-white">
         <div className="container mx-auto px-4">
