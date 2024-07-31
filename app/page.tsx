@@ -76,15 +76,15 @@ interface Photo {
 
 const photos: Photo[] = [
   {
-    src: "/img/gallery-.jpg",
+    src: "/img/gallery-.png",
     alt: "Photo 1",
   },
   {
-    src: "/img/gallery-1.jpg",
+    src: "/img/gallery-1.png",
     alt: "Photo 2",
   },
   {
-    src: "/img/gallery-2.jpg",
+    src: "/img/gallery-2.png",
     alt: "Photo 3",
   },
   {
@@ -143,62 +143,74 @@ const photos: Photo[] = [
     src: "/img/gallery-16.jpg",
     alt: "Photo 17",
   },
-  {
-    src: "/img/gallery-17.jpg",
-    alt: "Photo 18",
-  },
-  {
-    src: "/img/gallery-18.jpg",
-    alt: "Photo 19",
-  },
-  {
-    src: "/img/gallery-19.jpg",
-    alt: "Photo 20",
-  },
-  {
-    src: "/img/gallery-20.jpg",
-    alt: "Photo 21",
-  },
-  {
-    src: "/img/gallery-21.jpg",
-    alt: "Photo 22",
-  },
-  {
-    src: "/img/gallery-22.jpg",
-    alt: "Photo 23",
-  },
 ];
 
 const tourDates = [
   {
     date: "Ago. 27",
-    venue: "Metropolitan",
+    venue: "Metropólitan",
     city: "Ciudad de México",
+    link: "https://www.ticketmaster.com.mx/allison-boletos/artist/1409233?utm_source=TM-google&gad_source=1&gclid=CjwKCAjw1emzBhB8EiwAHwZZxVU_eemhrcaxdoB05605LspWkLCmsY0juRMl4rEGwzPcqEaPnq9x-xoCA-wQAvD_BwE",
+  },
+  {
+    date: "Ago. 29",
+    venue: "Rock Vibes",
+    city: "Nicaragua",
+    link: "https://ticketerani.com/rockvibes-kudaiyallison/",
   },
   {
     date: "Sep. 19",
     venue: "Teatro Morelos",
     city: "Toluca",
+    link: "https://allison-acustico-toluca.boletia.com/",
   },
   {
     date: "Sep. 20",
     venue: "Teatro Estudio Guanamor",
     city: "Guadalajara",
+    link: "https://allison-acustico-toluca.boletia.com/",
   },
   {
     date: "Sep. 21",
     venue: "Auditorio La Isla",
-    city: "Merida",
+    city: "Mérida",
+    link: " https://www.tusboletos.mx/evento/allison-acustico-merida",
   },
   {
     date: "Sep. 22",
     venue: "Showcenter",
     city: "Monterrey",
+    link: "https://www.superboletos.com/landing-evento/J-caPb_k87kBTk0ZV_nJSg",
+  },
+  {
+    date: "Sep. 28",
+    venue: "Cactus festival",
+    city: "Saltillo",
+    link: "https://arema.mx/checkout/59489/areas",
   },
   {
     date: "Oct. 04",
     venue: "Auditorio Explanada",
     city: "Puebla",
+    link: "https://boletos.blackticket.com.mx/tickets/es/entradas-musica-allison-acustico",
+  },
+  {
+    date: "Oct. 19",
+    venue: "ecate península",
+    city: "Tijuana",
+    link: "https://tecatepeninsula.com/boletos",
+  },
+  {
+    date: "Nov. 09",
+    venue: "Cachanilla Fest",
+    city: "Mexicali",
+    link: "https://janto4.mx/gpproducer/public/janto/main.php?Nivel=Evento&idEvento=CACHANILLAMEXI&fbclid=IwY2xjawD76opleHRuA2FlbQIxMAABHfZ6jaQXDZvqqMVj8ysoDJYLrO_hI9FOpvXZGqg6RW8URJzrFcAriTmw8w_aem_R2LO7W0iPXC3-YQvNRXIJg",
+  },
+  {
+    date: "Nov. 30",
+    venue: "Tattoo Music Fest Mx 2024 ",
+    city: "Guadalajara",
+    link: "https://boletos.blackticket.com.mx/tickets/es/entradas-musica-allison-acustico",
   },
 ];
 
@@ -261,16 +273,28 @@ export default function Home() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
   return (
     <main className="">
-      <header className="relative min-h-[100vh]">
+      <header className="relative md:min-h-[100vh]">
         <div className="absolute inset-0 z-0">
+          <div className="hidden md:block">
+            <Image
+              src="/img/banner.jpg"
+              alt="hero"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="top center"
+              className="md:block"
+            />
+          </div>
+        </div>
+        <div className="block md:hidden">
           <Image
-            src="/img/banner.jpg"
-            alt="hero"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top center"
+            src="/img/banda-mobile.jpg"
+            alt="Allison"
+            width={1300}
+            height={1920}
           />
         </div>
         <div className="absolute inset-0 z-10 bg-gradient-to-t from-white via-white/5 to-transparent"></div>
@@ -286,49 +310,85 @@ export default function Home() {
             </Link>
           ))}
         </div>
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-          <div className="flex justify-between items-center w-full px-4 py-2">
-            <button onClick={toggleMobileMenu} className="md:hidden text-3xl">
-              &#9776; {/* Icono de hamburguesa */}
-            </button>
-          </div>
-          <div
-            className={`md:flex justify-center space-x-16 mt-4 text-3xl font-bold ${
-              isMobileMenuOpen ? "block" : "hidden"
-            }`}
+        <div className="absolute top-4 left-4 z-20 flex md:hidden">
+          <button onClick={toggleMobileMenu} className="text-3xl">
+            &#9776; {/* Icono de hamburguesa */}
+          </button>
+        </div>
+        <div
+          className={`absolute top-16 left-4 z-30 bg-white border border-black ${
+            isMobileMenuOpen ? "block" : "hidden"
+          } md:hidden`}
+        >
+          <button
+            onClick={() => scrollTo("tour")}
+            className="block w-full border-b py-2 px-4 hover:bg-gray-200"
           >
-            <button
-              onClick={() => scrollTo("tour")}
-              className="border-2 border-transparent py-1 px-4 hover:border-black"
-            >
-              TOUR
-            </button>
-            <button
-              onClick={() => scrollTo("musica")}
-              className="border-2 border-transparent py-1 px-4 hover:border-black"
-            >
-              MUSICA
-            </button>
-            <button
-              onClick={() => scrollTo("merch")}
-              className="border-2 border-transparent py-1 px-4 hover:border-black"
-            >
-              MERCH
-            </button>
-            <Link
-              href="https://www.youtube.com/channel/UCFCFBfGHOv8wItbjwQPktyA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-2 border-transparent py-1 px-4 hover:border-black"
-            >
-              VIDEOS
-            </Link>
-            <button
-              onClick={() => scrollTo("galeria")}
-              className="border-2 border-transparent py-1 px-4 hover:border-black"
-            >
-              GALERIA
-            </button>
+            TOUR
+          </button>
+          <button
+            onClick={() => scrollTo("musica")}
+            className="block w-full border-b py-2 px-4 hover:bg-gray-200"
+          >
+            MÚSICA
+          </button>
+          <button
+            onClick={() => scrollTo("merch")}
+            className="block w-full border-b py-2 px-4 hover:bg-gray-200"
+          >
+            MERCH
+          </button>
+          <Link
+            href="https://www.youtube.com/channel/UCFCFBfGHOv8wItbjwQPktyA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full border-b py-2 px-4 hover:bg-gray-200"
+          >
+            VIDEOS
+          </Link>
+          <button
+            onClick={() => scrollTo("galeria")}
+            className="block w-full border-b py-2 px-4 hover:bg-gray-200"
+          >
+            GALERÍA
+          </button>
+        </div>
+        <div className="hidden md:flex absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+          <div className="flex justify-between items-center w-full px-4 py-2">
+            <div className="md:flex justify-center space-x-16 mt-4 text-3xl font-bold">
+              <button
+                onClick={() => scrollTo("tour")}
+                className="border-2 border-transparent py-1 px-4 hover:border-black"
+              >
+                TOUR
+              </button>
+              <button
+                onClick={() => scrollTo("musica")}
+                className="border-2 border-transparent py-1 px-4 hover:border-black"
+              >
+                MÚSICA
+              </button>
+              <button
+                onClick={() => scrollTo("merch")}
+                className="border-2 border-transparent py-1 px-4 hover:border-black"
+              >
+                MERCH
+              </button>
+              <Link
+                href="https://www.youtube.com/channel/UCFCFBfGHOv8wItbjwQPktyA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-transparent py-1 px-4 hover:border-black"
+              >
+                VIDEOS
+              </Link>
+              <button
+                onClick={() => scrollTo("galeria")}
+                className="border-2 border-transparent py-1 px-4 hover:border-black"
+              >
+                GALERÍA
+              </button>
+            </div>
           </div>
         </div>
         {!isPlaying && (
@@ -371,9 +431,11 @@ export default function Home() {
                   <p className="font-semibold">{tour.city}</p>
                 </div>
                 <div className="text-center">
-                  <button className="bg-black text-white py-2 px-4">
-                    TICKETS
-                  </button>
+                  <a href={tour.link} target="_blank" rel="noopener noreferrer">
+                    <button className="bg-black text-white py-2 px-4">
+                      TICKETS
+                    </button>
+                  </a>
                 </div>
               </div>
             ))}
