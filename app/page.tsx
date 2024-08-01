@@ -119,10 +119,10 @@ const photos: Photo[] = [
     src: "/img/gallery-10.jpg",
     alt: "Photo 11",
   },
-  {
-    src: "/img/gallery-11.jpg",
-    alt: "Photo 12",
-  },
+  // {
+  //   src: "/img/gallery-11.jpg",
+  //   alt: "Photo 12",
+  // },
   {
     src: "/img/gallery-12.jpg",
     alt: "Photo 13",
@@ -165,12 +165,6 @@ const tourDates = [
     link: "https://allison-acustico-toluca.boletia.com/",
   },
   {
-    date: "Sep. 20",
-    venue: "Teatro Estudio Guanamor",
-    city: "Guadalajara",
-    link: "https://allison-acustico-toluca.boletia.com/",
-  },
-  {
     date: "Sep. 21",
     venue: "Auditorio La Isla",
     city: "Mérida",
@@ -184,7 +178,7 @@ const tourDates = [
   },
   {
     date: "Sep. 28",
-    venue: "Cactus festival",
+    venue: "Cactus Festival",
     city: "Saltillo",
     link: "https://arema.mx/checkout/59489/areas",
   },
@@ -196,7 +190,7 @@ const tourDates = [
   },
   {
     date: "Oct. 19",
-    venue: "ecate península",
+    venue: "Tecate Península",
     city: "Tijuana",
     link: "https://tecatepeninsula.com/boletos",
   },
@@ -210,7 +204,7 @@ const tourDates = [
     date: "Nov. 30",
     venue: "Tattoo Music Fest Mx 2024 ",
     city: "Guadalajara",
-    link: "https://boletos.blackticket.com.mx/tickets/es/entradas-musica-allison-acustico",
+    link: "https://eventos.ticketnowmexico.com/ordertickets.asp?p=1748",
   },
 ];
 
@@ -277,6 +271,7 @@ export default function Home() {
   return (
     <main className="">
       <header className="relative md:min-h-[100vh]">
+        <link rel="icon" href="/favicon.ico"></link>
         <div className="absolute inset-0 z-0">
           <div className="hidden md:block">
             <Image
