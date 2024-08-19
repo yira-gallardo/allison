@@ -419,11 +419,11 @@ export default function Home() {
                 className="grid grid-cols-3 items-center py-4 border-b border-gray-300"
               >
                 <div className="text-center">
-                  <p className="font-semibold">{tour.date}</p>
+                  <p>{tour.date}</p>
                   <p>{tour.venue}</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-semibold">{tour.city}</p>
+                  <p>{tour.city}</p>
                 </div>
                 <div className="text-center">
                   <a href={tour.link} target="_blank" rel="noopener noreferrer">
