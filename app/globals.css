@@ -15,3 +15,8 @@
 .transparent-button:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
+body {
+  -webkit-font-smoothing: antialiased; /* O subpixel-antialiased */
+  -moz-osx-font-smoothing: grayscale;
+}
