@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Anton } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
 
 const anton = Anton({
   weight: "400",
