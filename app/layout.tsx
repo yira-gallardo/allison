@@ -9,7 +9,8 @@ const anton = Anton({
 });
 export const metadata: Metadata = {
   title: "ALLISON",
-  description: "ALLISON the best band in the world",
+  description:
+    "Una de las bandas más importantes de power pop metal de latinoamérica con más de trece años de trayectoria, continúan conquistando escenarios, cautivando a sus fans e influenciando nuevas generaciones.",
   openGraph: {
     images: [
       {
