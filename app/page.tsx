@@ -234,16 +234,21 @@ export default function Home() {
     setAudio(audioElement);
   }, []);
 
-  const playMusic = () => {
+  const toggleMusic = () => {
     if (audio) {
-      audio
-        .play()
-        .then(() => {
-          setIsPlaying(true);
-        })
-        .catch((error) => {
-          console.error("Error playing audio:", error);
-        });
+      if (isPlaying) {
+        audio.pause();
+        setIsPlaying(false);
+      } else {
+        audio
+          .play()
+          .then(() => {
+            setIsPlaying(true);
+          })
+          .catch((error) => {
+            console.error("Error playing audio:", error);
+          });
+      }
     }
   };
 
@@ -386,16 +391,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {!isPlaying && (
-          <div className="absolute bottom-4 right-4 z-30">
-            <button
-              onClick={playMusic}
-              className="bg-black text-white py-2 px-4 rounded"
-            >
-              Play Music
-            </button>
-          </div>
-        )}
+        <div className="absolute bottom-4 right-4 z-30">
+          <button
+            onClick={toggleMusic}
+            className="bg-black text-white py-2 px-4 rounded"
+          >
+            {isPlaying ? "Pause Music" : "Play Music"}
+          </button>
+        </div>
       </header>
       <section id="tour" className="py-16">
         <Animation
